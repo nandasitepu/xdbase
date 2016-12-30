@@ -13,7 +13,23 @@ require('laravel-elixir-vue-2');
  |
  */
 
-elixir((mix) => {
-    mix.sass('app.scss')
-       .webpack('app.js');
-});
+ var npmDir  = 'node_modules/',
+     jsDir   = 'resources/assets/js',
+     cssDir  = 'resources/assets/css';
+
+ elixir((mix) => {
+   mix.copy(npmDir + 'vue/dist/vue.js', jsDir);
+   mix.copy(npmDir + 'axios/dist/axios.js', jsDir);
+   mix.copy(npmDir + 'tinymce/tinymce.js', jsDir);
+
+   mix.scripts([
+     'vue.js',
+     'axios.js',
+   ],'public/js/vue-vendor.js' );
+
+   mix.scripts([
+     'tinymce.js',
+   ],'public/js/editor.js' );
+
+
+ });

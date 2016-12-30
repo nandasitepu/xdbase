@@ -18,18 +18,42 @@ require('laravel-elixir-vue-2');
      cssDir  = 'resources/assets/css';
 
  elixir((mix) => {
+   mix.copy(npmDir + 'jquery/dist/jquery.js', jsDir);
+
    mix.copy(npmDir + 'vue/dist/vue.js', jsDir);
    mix.copy(npmDir + 'axios/dist/axios.js', jsDir);
+
    mix.copy(npmDir + 'tinymce/tinymce.js', jsDir);
 
+   mix.copy(npmDir + 'bootstrap/dist/css/bootstrap.css', cssDir);
+   mix.copy(npmDir + 'bootstrap/dist/js/bootstrap.js', jsDir);
+
+   mix.copy(npmDir + 'font-awesome/css/font-awesome.css', cssDir);
+
+// The Scripts
    mix.scripts([
      'vue.js',
      'axios.js',
-   ],'public/js/vue-vendor.js' );
+   ],'public/js/my-vue.js' );
 
    mix.scripts([
      'tinymce.js',
    ],'public/js/editor.js' );
 
-
  });
+
+ elixir(function(mix) {
+    mix.scripts([
+      'jquery.js',
+      'bootstrap.js'
+    ],'./public/js/app.js'
+    );
+
+    mix.styles([
+       'bootstrap.css',
+       'font-awesome.css'
+   ], './public/css/app.css'
+   );
+
+
+});

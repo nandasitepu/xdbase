@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('xdbase');
 });
+
+//Penyedia
+Route::resource('penyedia', 'PenyediaController', ['parameters' => ['penyedia' => 'penyedia']]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

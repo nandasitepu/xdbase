@@ -15,9 +15,16 @@ Route::get('/', function () {
   return view('xdbase');
 });
 
-//Penyedia
-Route::resource('penyedia', 'PenyediaController', ['parameters' => ['penyedia' => 'penyedia']]);
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+//Tipe
+Route::resource('tipe', 'TipeController');
+
+//Penyedia
+Route::resource('penyedia', 'PenyediaController', ['parameters' => ['penyedia' => 'penyedia']]);
+
+
+//Layanan
+//Route::resource('layanan', 'LayananController');

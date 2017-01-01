@@ -6,7 +6,41 @@
   <link rel="stylesheet" href="/css/penyedia/sidebar-nav.css">
 @endsection
 @section('scripts')
-<script src="/js/data/penyedia.js"></script>
+<script type="text/javascript">/* Ajax Load More */
+  var page = 1;
+
+  $("#loadmore").click(function (e) { //user clicks on button
+    page++;
+    loadMoreData(page);
+  });
+
+  function loadMoreData(page){
+	  $.ajax(
+	        {
+	            url: '?page=' + page,
+	            type: "get",
+	            beforeSend: function()
+	            {
+                $('.ajax-load').show();
+	            }
+	        })
+	        .done(function(data)
+	        {
+            if(data.html == ""){
+              $('.ajax-load').html("Sudah Semua Gan !!");
+              return;
+            }
+            $('#loadmore').show();
+            $('.ajax-load').hide();
+            $("#post-data").append(data.html);
+
+	        })
+	        .fail(function(jqXHR, ajaxOptions, thrownError)
+	         {
+              alert('server not responding...');
+	          });
+	}
+</script>
 @endsection
 
 @section('content')
@@ -44,25 +78,21 @@
 
     <div class="container">
       <!-- Penyedia Row -->
-      <div class="row">
-        @foreach ($penyedia as $p)
-          <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 portfolio-item">
-            <a href="#">
-              <img class="img-responsive img-thumbnail" src="{{ $p->image_path }}" alt="">
-            </a>
-            <div class="btn btn-block btn-sm btn-default">
-              {{ $p->shortname }} <br>
-              <small>{{ $p->updated_at }}</small>
-            </div>
-          </div>
-        @endforeach
+      <div class="row" id="post-data">
+        @include('data.penyedia.ajax')
       </div>
+      <div class="btn btn-default btn-sm btn-block" id="loadmore">
+        Penyedia Lainnya
+      </div>
+
       <!-- /.row -->
-      <div class="row">
-        <div class="text-center">
-          {{ $penyedia->links() }}
-        </div>
-      </div>
+      <div class="ajax-load text-center" style="display:none">
+	       <p><img src="http://demo.itsolutionstuff.com/plugin/loader.gif">Penyedia Lainnya</p>
+       </div>
+       <br>
+       <br>
+       <br>
+       <br>
     </div>
     <br />
     <br />

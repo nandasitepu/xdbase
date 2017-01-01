@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-default navbar-fixed-bottom">
+<nav class="navbar navbar-default navbar-fixed-bottom" id="navbot">
   <div class="container">
     <ul class="nav navbar-nav pull-right hidden-xs">
        <li><a href="#">&nbsp;</a></li>

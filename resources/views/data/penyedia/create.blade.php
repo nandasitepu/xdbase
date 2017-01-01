@@ -7,7 +7,7 @@
 @endsection
 @section('scripts')
   <script src="/js/data/penyedia.js"></script>
-  <script src="/js/editor.js"></script>
+  <script src="/js/form.js">/* Tiny MCE & Parsley & Select2 */</script>
   <script type="text/javascript"> /* Tiny MCE Config */
     tinymce.init({
       selector: '#deskripsi',
@@ -41,68 +41,100 @@
 
 @section('content')
   @include('layouts._navtop')
-    <div class="container">
+    <div class="container" style="padding-bottom:100px">
       <div class="row">
         <div class="col-md-12">
           <h3><span class="label label-default">Tambah Penyedia</span></h3>
           @include('layouts._message')
-
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
           <div class="panel panel-default">
             <div class="panel-body">
+              {!! Form::open(['route'=>'penyedia.store', 'data-parsley-validate' => '', 'files'=> true]) !!}
               <div class="row">
                 <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="fullname" class="label label-default">Nama Penyedia:</label>
-                    <input type="text" class="form-control" id="fullname" placeholder="Penyedia">
-                  </div>
+                    {{ Form::label('fullname', 'Nama Penyedia:', ['class' => 'label label-default'])}}
+                    {{ Form::text('fullname', null, [
+                      'class' => ' form-control',
+                      'data-parsley-trigger' => "change",
+                      'required' =>'',
+                      'minlength' => '5'
+                      ])
+                    }}
+
+                </div>
+                <div class="col-md-3">
+                    {{ Form::label('shortname', 'Short:', ['class' => 'label label-default'])}}
+                    {{ Form::text('shortname', null, [
+                      'class' => ' form-control',
+                      'required' =>'',
+                      'minlength' => '1',
+                      'maxlength' => '20'
+                      ])
+                    }}
                 </div>
                 <div class="col-md-3">
                   <div class="form-group">
-                    <label for="shortname" class="label label-default">Short:</label>
-                    <input type="text" class="form-control" id="short" placeholder="Penyedia">
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <label for="shortname" class="label label-default">Slug:</label>
-                    <input type="text" class="form-control" id="slug" placeholder="Slug">
+                    {{ Form::label('slug', 'Slug:', ['class' => 'label label-default'])}}
+                    {{ Form::text('slug', null, [
+                      'class' => ' form-control',
+                      'required' =>'',
+                      'maxlength' => '255'
+                      ])
+                    }}
                   </div>
                 </div>
               </div>
+              <br />
               <div class="row">
                 <div class="col-md-8">
                   <div class="form-group">
-                    <label for="desc" class="label label-default">Deskripsi:</label>
-                    <textarea class="form-control" id="deskripsi" name="desc" rows="10"></textarea>
+                    {{ Form::label('desc', 'Deskripsi:', ['class' => 'label label-default'])}}
+                    {{ Form::textarea('desc', null, [
+                      'class' => ' form-control',
+                      'rows'=> '10',
+                      'required' =>'',
+                      'minlength' => '20',
+                      'id' => 'deskripsi'
+                      ])
+                    }}
                   </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3 col-md-offset-1">
                   <div class="form-group">
-                    <label class="label label-default">Image Penyedia: </label>
-                    <input type="file" name="image" id="img-upload" class="form-control">
+                    {{ Form::label('image', 'Image Penyedia:', ['class' => 'label label-default'])}}
+                    {{ Form::file('image', ['class' => 'form-control', 'id'=>'img-upload'])  }}
                     <div class="text-center" style="margin:5px">
                       <img src="" id="img-upload-show" width="200px"/>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-4">
                   <div class="form-group">
-                    <label for="desc" class="label label-default">Tipe:</label>
-                    <input type="text" class="form-control" id="tipe" placeholder="Slug">
+                    {{ Form::label('tipe', 'Tipe:', ['class' => 'label label-default'])}}
+                    <select class="form-control" name="tipe_id">
+                      @foreach ($tipe as $t )
+                        <option value="{{ $t->id }}">{{ $t->fullname }}</option>
+                      @endforeach
+                    </select>
                   </div>
-                </div>
-                <div class="col-md-4">
                   <div class="form-group">
-                    <label for="desc" class="label label-default">Kontak:</label>
-                    <textarea class="form-control" id="contact" name="contact" rows="5"></textarea>
+                    {{ Form::label('contact', 'Kontak:', ['class' => 'label label-default'])}}
+                    {{ Form::textarea('contact', null, [
+                      'class' => ' form-control',
+                      'required' =>'',
+                      'rows' => '5'
+                      ])
+                    }}
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <button type="button" class="btn btn-primary btn-block" name="button">Submit</button>
+                  {{ Form::submit('Tambah Penyedia', ['class' => 'btn btn-sm btn-block btn-default', 'style' =>'margin-top:20px'])}}
                 </div>
               </div>
+              {!! Form::close() !!}
             </div>
           </div>
         </div>

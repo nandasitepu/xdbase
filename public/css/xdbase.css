@@ -62,7 +62,7 @@
 /** MAIN CSS **/
 body{
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 70px;
 }
 
 html,body {
@@ -170,4 +170,8 @@ html,body {
 
 .img-thumbnail {
   padding: 15px;
+}
+
+#navbot{
+  margin-top: 20px;
 }

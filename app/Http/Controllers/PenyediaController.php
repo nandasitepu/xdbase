@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Penyedia;
+use App\Tipe;
+use Image;
+use Session;
 
 class PenyediaController extends Controller
 {
@@ -15,7 +18,7 @@ class PenyediaController extends Controller
 
     public function index(Request $request)
     {
-      $penyedia = Penyedia::paginate(6);
+      $penyedia = Penyedia::orderBy('created_at', 'desc')->paginate(6);
 
       if ($request->ajax()) {
       $view = view('data.penyedia.ajax',compact('penyedia'))->render();
@@ -29,14 +32,15 @@ class PenyediaController extends Controller
 
     public function create()
     {
-      return view('data.penyedia.create');
+      $tipe = Tipe::all();
+      return view('data.penyedia.create', compact('tipe'));
     }
 
     public function store(Request $request)
     {
       // Validasi Penyedia
       $this->validate($request,[
-        'image_path'     => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'image'          => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'fullname'       => 'required|max:255',
         'shortname'      => 'required|max:150',
         'slug'           => 'required',
@@ -55,9 +59,17 @@ class PenyediaController extends Controller
       $penyedia->desc       = $request->desc;
       $penyedia->contact    = $request->contact;
 
+      $penyedia->tipe_id    = $request->tipe_id;
 
+      // Simpan Image
+      if($request->hasFile('image')) {
+        $image = $request->file('image');
+        $filename = time(). '.'. $image->getClientOriginalName();
+        $location = public_path('storage/img/penyedia/') . $filename;
+        Image::make($image)->resize(400,400)->save($location);
 
-      $penyedia->tipe_id = $request->tipe_id;
+        $penyedia->image = $filename;
+      }
 
       $penyedia->save();
 
@@ -67,4 +79,18 @@ class PenyediaController extends Controller
       return redirect()->route('penyedia.index');
     }
 
+    public function show($id) {
+
+      $tipe = Tipe::all();
+      $penyedia = Penyedia::find($id);
+
+      return view ('data.penyedia.show')->with('tipe', $tipe)->with('penyedia', $penyedia);
+    }
+
+
+    public function edit()
+    {
+      $tipe = Tipe::all();
+      return view('data.penyedia.create', compact('tipe'));
+    }
 }

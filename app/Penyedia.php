@@ -26,4 +26,9 @@ class Penyedia extends Model
     return $this->hasMany('App\Layanan');
   }
 
+  public function tipe()
+  {
+    return $this->belongsTo('App\Tipe');
+  }
+
 }

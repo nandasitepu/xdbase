@@ -16,6 +16,7 @@ require('laravel-elixir-vue-2');
  var npmDir  = 'node_modules/',
      jsDir   = 'resources/assets/js',
      cssDir  = 'resources/assets/css';
+     assDir  = 'public/as/';
 
  elixir((mix) => {
    mix.copy(npmDir + 'jquery/dist/jquery.js', jsDir);
@@ -30,6 +31,13 @@ require('laravel-elixir-vue-2');
 
    mix.copy(npmDir + 'font-awesome/css/font-awesome.css', cssDir);
 
+   mix.copy(npmDir + 'select2/dist/js/select2.js', jsDir);
+   mix.copy(npmDir + 'select2/dist/css/select2.css', cssDir);
+
+   mix.copy(npmDir + 'parsleyjs/dist/parsley.js', jsDir);
+
+
+
 // The Scripts
    mix.scripts([
      'vue.js',
@@ -38,7 +46,10 @@ require('laravel-elixir-vue-2');
 
    mix.scripts([
      'tinymce.js',
-   ],'public/js/editor.js' );
+     'parsley.js',
+     'id.js',
+     'select2.js',
+   ],'public/js/form.js' );
 
  });
 

@@ -1,5 +1,5 @@
 @foreach ($penyedia as $p)
-  <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 portfolio-item" >
+  <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 portfolio-item">
     <a href="{{route('penyedia.show', $p->id) }}">
       <img class="img-responsive img-thumbnail" src="{{ asset('storage/img/penyedia/' . $p->image) }}" alt="">
     </a>

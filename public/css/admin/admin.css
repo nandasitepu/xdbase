@@ -1,0 +1,29 @@
+.fixed-panel {
+  min-height: 300px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.panel-black > .panel-heading {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+.panel-blue > .panel-heading {
+  color: #fff;
+  background-color: #0066ff;
+  border-color: #009900;
+}
+
+.panel-purple > .panel-heading {
+  color: #fff;
+  background-color: #9900cc;
+  border-color: #009900;
+}
+
+.panel-green > .panel-heading {
+  color: #fff;
+  background-color: #009900;
+  border-color: #009900;
+}

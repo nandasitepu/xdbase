@@ -3,7 +3,6 @@
   Pusat Informasi dan Data Indonesia
 @endsection
 @section('css')
-<link rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min.css">
 @endsection
 @section('scripts')
   <script type="text/javascript">
@@ -26,9 +25,12 @@
   });
   </script>
 @endsection
-@section('content')
+@section('navtop')
   <!-- NAV TOP -->
   @include('layouts._navtop')
+@endsection
+@section('content')
+
   <!-- BACKGROUND SLIDER -->
   <div id="background-carousel">
     <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
@@ -42,15 +44,15 @@
   <!-- STATIC CONTENT-->
   <div id="content-wrapper">
     <!-- PAGE CONTENT -->
-    <div class="container">
+    <div class="container" id="xdbase">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="text-center">
-            <h1 class="label label-default">XDBASE</h1>
+            <h4><span class="label label-primary">XDBASE</span></h4>
           </div>
 
           <div class="text-center full">
-            <h2 class="oswald">Pusat Informasi dan Data Indonesia</h2>
+            <h2 class="oswald">Pusat Data dan Informasi Indonesia</h2>
             <h5 class="roboto">Referensi Data Terpercaya</h5>
           </div>
           <hr>
@@ -104,7 +106,7 @@
             <br>
             <br>
             <p class="text-center">
-              <a href="{{url('dashboard')}}" class="btn btn-primary btn-md">
+              <a href="{{url('login')}}" class="btn btn-primary btn-md cool">
                 <span>Masuk</span>&nbsp;
                 <i class="fa fa-fw fa-sign-in" aria-hidden="true"></i>
               </a>
@@ -113,9 +115,11 @@
       </div>
       </div>
     </div>
-    <!-- PAGE CONTENT -->
+    <!--./ PAGE CONTENT -->
   </div>
-  <!-- NAV BOTTOM -->
-  @include('layouts._navbot')
 </div>
+@endsection
+@section('navbot')
+  <!-- NAV TOP -->
+  @include('layouts._navbot')
 @endsection

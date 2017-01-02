@@ -27,7 +27,8 @@
 	        .done(function(data)
 	        {
             if(data.html == ""){
-              $('.ajax-load').html("Sudah Semua Gan !!");
+              $('#loadmore').hide();
+              $('.ajax-load').html("<br /> <h4> ... Habis ... </h4>");
               return;
             }
             $('#loadmore').show();
@@ -60,7 +61,7 @@
 		  <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="{{route('penyedia.create')}}">Add<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-plus-circle"></span></a></li>
+				<li><a href="{{route('penyedia.create')}}">Add<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-plus-circle"></span></a></li>
 				<li ><a href="#">Delete<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-trash-o"></span></a></li>
 				<li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-comment-o"></span></a></li>
 			</ul>
@@ -69,30 +70,26 @@
   </nav>
   <div class="main">
     <!-- Page Content -->
-    <div class="container">
-      <div class="row">
+    <div class="container" style="padding-bottom:70px">
+      <div class="row" style="padding:0px">
+        @include('layouts._message')
         <h3>&nbsp;<span class="label label-default">Index Penyedia Data</span></h3>
           <hr>
       </div>
-    </div>
-
-    <div class="container">
       <!-- Penyedia Row -->
-      <div class="row" id="post-data">
+      <div class="row" id="post-data"  >
         @include('data.penyedia.ajax')
       </div>
       <div class="btn btn-default btn-sm btn-block" id="loadmore">
-        Penyedia Lainnya
+        More Data
       </div>
 
       <!-- /.row -->
       <div class="ajax-load text-center" style="display:none">
-	       <p><img src="http://demo.itsolutionstuff.com/plugin/loader.gif">Penyedia Lainnya</p>
+          <br />
+	       <p><span class="fa fa-cog fa-spin fa-2x"></span>&nbsp; Loading</p>
        </div>
-       <br>
-       <br>
-       <br>
-       <br>
+
     </div>
     <br />
     <br />

@@ -59,16 +59,26 @@
 .roboto {
   font-family: 'Roboto';
 }
+
+@font-face {
+  font-family: 'Miriam';
+  src: url(../fonts/Miriam_libre/MiriamLibre-Regular.ttf);
+  font-weight: normal;
+}
+
+.miriam {
+  font-family: 'Miriam';
+}
 /** MAIN CSS **/
-body{
+body {
   padding-top: 50px;
   padding-bottom: 70px;
 }
 
 html,body {
-    height:100%;
-    width:100%;
-    position:relative;
+  height:100%;
+  width:100%;
+  position:relative;
 }
 
 
@@ -98,9 +108,15 @@ html,body {
 	position:absolute;
 	z-index:1 !important;
 	min-width:100%;
-	min-height:100%;
-  padding-top: 30px;
+	max-height:100%;
+  padding-top: 80px;
 }
+
+#xdbase {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 .well {
     opacity:0.85
 }
@@ -170,8 +186,4 @@ html,body {
 
 .img-thumbnail {
   padding: 15px;
-}
-
-#navbot{
-  margin-top: 20px;
 }

@@ -19,12 +19,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+// The Pages
+Route::get('/disclaimer', function () {return view('pages.disclaimer');});
+Route::get('/sk', function () {return view('pages.sk');});
+Route::get('/faq', function () {return view('pages.faq');});
+
+
 //Tipe
 Route::resource('tipe', 'TipeController');
 
 //Penyedia
 Route::resource('penyedia', 'PenyediaController', ['parameters' => ['penyedia' => 'penyedia']]);
-
 
 //Layanan
 //Route::resource('layanan', 'LayananController');

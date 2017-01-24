@@ -32,11 +32,21 @@
           </a>
         </li>
 				<li>
-          <a href="{{route('penyedia.edit', $penyedia->id)}}">Edit
+
+          <a href="{{ route('penyedia.edit', $penyedia->id) }}">Edit
             <span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-pencil-square-o"></span>
           </a>
+
         </li>
-				<li ><a href="#">Delete<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-trash-o"></span></a></li>
+				<li >
+
+          </a>
+          {!! Form::open(['route' => ['penyedia.destroy', $penyedia->id], 'method' =>'DELETE', 'onsubmit' => "return confirm('Hapus Penyedia?')" ]) !!}
+            <button class="btn btn-danger btn-block"><span class="text-left"><span>Delete</span></span>
+              <span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-trash-o" type="submit"></span>
+            </button>
+          {!! Form::close() !!}
+        </li>
 				<li ><a href="#">Komentar<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-comment-o"></span></a></li>
 			</ul>
 		</div>

@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="/css/penyedia/sidebar-nav.css">
 @endsection
 @section('scripts')
-<script type="text/javascript">/* Ajax Load More */
+  <script type="text/javascript">/* Ajax Load More */
   var page = 1;
 
   $("#loadmore").click(function (e) { //user clicks on button
@@ -47,7 +47,7 @@
 @section('content')
   @include('layouts._navtop')
   <!-- Side Menu -->
-  <nav class="navbar navbar-default sidebar hidden-xs" role="navigation">
+  <nav class="navbar navbar-default sidebar" role="navigation">
     <div class="container-fluid">
     	<!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
@@ -68,6 +68,7 @@
 		</div>
     </div>
   </nav>
+  <!-- CONTENT -->
   <div class="main">
     <!-- Page Content -->
     <div class="container" style="padding-bottom:70px">

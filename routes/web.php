@@ -17,7 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+
+Route::get('/dashboard', 'AdminController@index');
 
 // The Pages
 Route::get('/disclaimer', function () {return view('pages.disclaimer');});
@@ -32,4 +33,4 @@ Route::resource('tipe', 'TipeController');
 Route::resource('penyedia', 'PenyediaController', ['parameters' => ['penyedia' => 'penyedia']]);
 
 //Layanan
-//Route::resource('layanan', 'LayananController');
+Route::resource('layanan', 'LayananController');

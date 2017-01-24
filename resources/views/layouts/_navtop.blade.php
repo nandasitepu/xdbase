@@ -28,11 +28,11 @@
             <ul class="nav navbar-nav navbar-right text-center">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">Login <i class="fa fa-universal-access" aria-hidden="true"></i></a></li>
-                    <li><a href="{{ url('/register') }}">Register <i class="fa fa-user-circle-o" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ url('login') }}">Login <i class="fa fa-universal-access" aria-hidden="true"></i></a></li>
+                    <li><a href="{{ url('register') }}">Register <i class="fa fa-user-circle-o" aria-hidden="true"></i></a></li>
                 @else
                   <li>
-                    <a href="{{url('home')}}">
+                    <a href="{{url('dashboard')}}">
                       Dashboard
                     </a>
                   </li>

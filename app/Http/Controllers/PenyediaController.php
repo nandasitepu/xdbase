@@ -110,8 +110,6 @@ class PenyediaController extends Controller
     public function update(Request $request, $id)
     {
 
-      $penyedia = Penyedia::find($id);
-
       // Validasi Updated Penyedia
       $this->validate($request,[
         'image'          => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -125,7 +123,7 @@ class PenyediaController extends Controller
       ]);
 
       // Set Data Updated Penyedia
-      $penyedia = new Penyedia;
+      $penyedia = Penyedia::find($id);
 
       $penyedia->fullname   = $request->fullname;
       $penyedia->shortname  = $request->shortname;
@@ -159,7 +157,7 @@ class PenyediaController extends Controller
     }
 
     // Delete Penyedia
-    public function destroy()
+    public function destroy($id)
     {
       $penyedia = Penyedia::find($id);
 

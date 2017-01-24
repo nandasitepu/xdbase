@@ -69,7 +69,8 @@ class LayananController extends Controller
      */
     public function edit($id)
     {
-        //
+      $layanan = Layanan::find($id);
+      return view ('data.layanan.edit')->with('layanan', $layanan);
     }
 
     /**

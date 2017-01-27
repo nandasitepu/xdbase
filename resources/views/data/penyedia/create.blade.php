@@ -89,11 +89,11 @@
               </div>
               <br />
               <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-6">
                   <div class="form-group">
                     {{ Form::label('desc', 'Deskripsi:', ['class' => 'label label-default'])}}
                     {{ Form::textarea('desc', null, [
-                      'class' => ' form-control',
+                      'class' => 'form-control',
                       'rows'=> '10',
                       'required' =>'',
                       'minlength' => '20',
@@ -102,7 +102,7 @@
                     }}
                   </div>
                 </div>
-                <div class="col-md-3 col-md-offset-1">
+                <div class="col-md-3">
                   <div class="form-group">
                     {{ Form::label('image', 'Image Penyedia:', ['class' => 'label label-default'])}}
                     {{ Form::file('image', ['class' => 'form-control', 'id'=>'img-upload'])  }}
@@ -110,6 +110,8 @@
                       <img src="" id="img-upload-show" width="200px"/>
                     </div>
                   </div>
+                </div>
+                <div class="col-md-3">
                   <div class="form-group">
                     {{ Form::label('tipe', 'Tipe:', ['class' => 'label label-default'])}}
                     <select class="form-control" name="tipe_id">
@@ -118,6 +120,8 @@
                       @endforeach
                     </select>
                   </div>
+                </div>
+                <div class="col-md-6">
                   <div class="form-group">
                     {{ Form::label('contact', 'Kontak:', ['class' => 'label label-default'])}}
                     {{ Form::textarea('contact', null, [

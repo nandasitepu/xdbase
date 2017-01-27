@@ -147,3 +147,78 @@ html, body {
   left: 0;
 }
 }
+
+
+/* ACCORDION */
+
+.demo{ background: #fff; }
+a:hover,a:focus{
+    text-decoration: none;
+    outline: none;
+}
+#accordion .panel{
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+    margin-bottom: 20px;
+}
+#accordion .panel-heading{
+    padding: 0;
+    border-radius: 0;
+    border: none;
+}
+#accordion .panel-title a{
+    display: block;
+    padding: 15px 30px 15px 50px;
+    border: 4px solid #fff;
+    color: #fff;
+    background: #1b8a9d;
+    position: relative;
+    z-index: 1;
+}
+#accordion .panel-title a:before,
+#accordion .panel-title a.collapsed:before{
+    content: "\f055";
+    font-family: 'FontAwesome';
+    font-size: 30px;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    transform: rotate(45deg);
+    transition: all 0.4s ease-in-out 0s;
+}
+#accordion .panel-title a.collapsed:before{
+    transform: rotate(0deg);
+}
+#accordion .panel-title a:after{
+    content: "";
+    border-top: 10px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    margin-left: -10px;
+}
+#accordion .panel-title a.collapsed:after{
+    content: "";
+    border: none;
+    border-bottom: 10px solid #fff;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    position: absolute;
+    bottom: 108.5%;
+    left: 50%;
+    transition: all 0.4s ease-in-out 0s;
+}
+#accordion .panel-body{
+    background: #fff;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #393737;
+    line-height: 25px;
+    border: none;
+    border-top: 3px solid #ed4f69;
+    border-bottom: 3px solid #ed4f69;
+}

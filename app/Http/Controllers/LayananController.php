@@ -43,7 +43,53 @@ class LayananController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      // Validasi Form Tambah Layanan
+      $this->validate($request,[
+        'gambar'        => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'nama'          => 'required|max:255',
+        'slug'          => 'required',
+        'detail'        => 'required',
+        'syarat'        => 'required',
+        'waktu'         => 'required',
+        'biaya'         => 'required',
+        'kontak'        => 'required',
+        'info'          => 'required',
+
+        'penyedia_id'   => 'required|integer',
+      ]);
+
+      // Simpan Data Layanan
+      $layanan = new Layanan;
+
+      $layanan->nama            = $request->nama;
+      $layanan->slug            = $request->slug; // URL
+      $layanan->detail          = $request->detail;
+      $layanan->syarat          = $request->syarat;
+      $layanan->waktu           = $request->waktu;
+      $layanan->biaya           = $request->biaya;
+      $layanan->kontak          = $request->kontak;
+      $layanan->info            = $request->info;
+
+      $layanan->penyedia_id     = $request->penyedia_id;
+
+      // Upload Image and Set to Database
+      if($request->hasFile('gambar')) {
+        $image = $request->file('gambar');
+        $filename = time(). '.'. $image->getClientOriginalName();
+        $location = public_path('storage/img/layanan/') . $filename;
+        Image::make($image)->resize(400,400)->save($location);
+        // Set Image Name to Database
+        $layanan->gambar = $filename;
+      }
+
+      // Save All Form Data
+      $layanan->save();
+
+      // Flash Success Message
+      Session::flash('success','Layanan Berhasil Ditambah !');
+
+      // Back to The Index Page
+      return redirect()->route('layanan.index');
     }
 
     /**

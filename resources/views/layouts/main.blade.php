@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   @include('layouts._head')
-  <!-- NAVTOP -->
-  @yield('navtop')
+  <header>
+    <!-- NAVTOP -->
+    @yield('navtop')
+  </header>
 
   <!-- BODY-->
   <body>
@@ -12,8 +14,11 @@
     @include('layouts._scripts')
   </body>
 
-  <!-- NAVBOT -->
-  @yield('navbot')
-  <!-- Footer -->
-  @include('layouts._foot')
+  <footer>
+    <!-- NAVBOT -->
+    @yield('navbot')
+    <!-- Footer -->
+    @include('layouts._foot')
+  </footer>
+
 </html>

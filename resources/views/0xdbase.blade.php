@@ -3,38 +3,37 @@
   Pusat Informasi dan Data Indonesia
 @endsection
 @section('css')
-  <link rel="stylesheet" href="/css/homepage.css">
 @endsection
 @section('scripts')
   <script type="text/javascript">
-    $(document).ready(function () {
-      $('.count').each(function () {
-        $(this).prop('Counter',0).animate({
-            Counter: $(this).text()
-        }, {
-            duration: 5000,
-            easing: 'swing',
-            step: function (now) {
-                $(this).text(Math.ceil(now));
-            }
-        });
+  $(document).ready(function () {
+    $('.count').each(function () {
+      $(this).prop('Counter',0).animate({
+          Counter: $(this).text()
+      }, {
+          duration: 5000,
+          easing: 'swing',
+          step: function (now) {
+              $(this).text(Math.ceil(now));
+          }
       });
-      $('#myCarousel').carousel({
-       interval: 7000,
-       pause: 'none'
-     });
     });
+    $('#myCarousel').carousel({
+     interval: 7000,
+     pause: 'none'
+   });
+  });
   </script>
   <script type="text/javascript">
-      $(document).ready(function(e){
-        $('.search-panel .dropdown-menu').find('a').click(function(e) {
-        e.preventDefault();
-        var param = $(this).attr("href").replace("#","");
-        var concept = $(this).text();
-        $('.search-panel span#search_concept').text(concept);
-        $('.input-group #search_param').val(param);
-      });
-    });
+  $(document).ready(function(e){
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+    e.preventDefault();
+    var param = $(this).attr("href").replace("#","");
+    var concept = $(this).text();
+    $('.search-panel span#search_concept').text(concept);
+    $('.input-group #search_param').val(param);
+  });
+});
   </script>
 @endsection
 @section('navtop')
@@ -52,19 +51,20 @@
       </div>
     </div>
   </div>
-  <!-- STATIC BLOCK CENTER CONTENT-->
+  <!-- STATIC CONTENT-->
   <div class="container" id="xdbase">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="text-center">
           <h4><span class="label label-primary">XDBASE</span></h4>
         </div>
-        <br>
+        <hr>
         <div class="text-center full">
           <h2 class="oswald">Pusat Data dan Informasi Indonesia</h2>
           <h5 class="roboto">Referensi Data Terpercaya</h5>
         </div>
-        <br>
+        <hr>
+
         <div class="text-center">
           <div class="btn-group lato" id="menu1">
             <div class="col-xs-12">
@@ -76,7 +76,7 @@
             </div>
           </div>
         </div>
-        <br>
+        <hr>
         <div class="col-md-10 col-md-offset-1 input-group">
           <input type="hidden" name="search_param" value="all" id="search_param">
           <input type="text" class="form-control text-center" name="x" placeholder="<< Cari Disini >>">
@@ -98,7 +98,6 @@
           </span>
         </div><!-- /input-group --> <!-- Search BOX -->
         <hr>
-        <br>
         <div class="text-center">
           <div class="btn-group lato" id="menu2">
             <div class="col-xs-12">
@@ -117,8 +116,7 @@
             </div>
           </div>
         </div>
-  
-        <br>
+        <hr>
         <div class="col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1 Tombol Masuk">
           <p class="text-center">
             <a href="{{url('login')}}" class="btn btn-primary btn-md cool btn-block">
@@ -128,7 +126,12 @@
           </p>
         </div>
     </div>
+
+
+
+
   </div>
+
 @endsection
 @section('navbot')
   <!-- NAV TOP -->

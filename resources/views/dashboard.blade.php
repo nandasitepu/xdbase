@@ -45,33 +45,83 @@
 @endsection
 
 @section('content')
-
   <div class="container">
     <div class="row">
-        <!--  Side Menu -->
-        <button class="btn btn-default btn-block btn-xs visible-xs" data-toggle="collapse" data-target="#sidemenu">
+      <div class="col-md-3">
+
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <a href="#" data-target-id="social"><i class="fa fa-th fa-fw"></i>Social Counter</a>
+          </div>
+        </div>
+        <button class="btn btn-default btn-block btn-xs hidden-xs" data-toggle="collapse" data-target="#sidemenu">
           <i class="fa fa-th" aria-hidden="true"></i>
         </button>
+      </div>
+      <div class="col-md-9">
+        <div class="col-md-3">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <a href="#"><i class="fa fa-facebook fa-3x"></i>&nbsp;
+              <span class="label label-primary">12345</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <a href="#"><i class="fa fa-twitter fa-3x"></i>&nbsp;
+              <span class="label label-info">12345</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <a href="#"><i class="fa fa-google-plus fa-3x"></i>&nbsp;
+                <span class="label label-danger">12345</span>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <a href="#"><i class="fa fa-linkedin fa-3x"></i>&nbsp;
+              <span class="btn btn-default btn-xs"><small>12345</small></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="col-md-3 panel panel-default collapse in" id="sidemenu">
-            <ul class="nav nav-pills nav-stacked admin-menu " data-spy="affix" data-offset-top="50">
-                <li class="active"><a href="#" data-target-id="social"><i class="fa fa-th fa-fw"></i>Social</a></li>
-                <li><a href="#" data-target-id="home"><i class="fa fa-home fa-fw"></i>Home</a></li>
-                <li><a href="#" data-target-id="widgets"><i class="fa fa-list-alt fa-fw"></i>Widgets</a></li>
-                <li><a href="#" data-target-id="pages"><i class="fa fa-file-o fa-fw"></i>Pages</a></li>
-                <li><a href="#" data-target-id="charts"><i class="fa fa-bar-chart-o fa-fw"></i>Charts</a></li>
-                <li><a href="#" data-target-id="table"><i class="fa fa-table fa-fw"></i>Table</a></li>
-                <li><a href="#" data-target-id="forms"><i class="fa fa-tasks fa-fw"></i>Forms</a></li>
-                <li><a href="#" data-target-id="calender"><i class="fa fa-calendar fa-fw"></i>Calender</a></li>
-                <li><a href="#" data-target-id="library"><i class="fa fa-book fa-fw"></i>Library</a></li>
-                <li><a href="#" data-target-id="applications"><i class="fa fa-pencil fa-fw"></i>Applications</a></li>
-                <li><a href="#" data-target-id="settings"><i class="fa fa-cogs fa-fw"></i>Settings</a></li>
+  <div class="container">
+      <div class="row">
+        <!--  Side Menu -->
+        <div class="col-md-12">
+          <button class="btn btn-default btn-block btn-xs visible-xs" data-toggle="collapse" data-target="#sidemenu">
+            <i class="fa fa-th" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <div class="col-md-3 collapse in" id="sidemenu">
+
+          <div class="panel panel-default" data-spy="affix" data-offset-top="50">
+            <ul class="nav nav-pills nav-stacked admin-menu" >
+              <li><a href="#" data-target-id="home"><i class="fa fa-home fa-fw"></i>Home</a></li>
+              <li><a href="#" data-target-id="widgets"><i class="fa fa-list-alt fa-fw"></i>Widgets</a></li>
+              <li><a href="#" data-target-id="pages"><i class="fa fa-file-o fa-fw"></i>Pages</a></li>
+              <li><a href="#" data-target-id="charts"><i class="fa fa-bar-chart-o fa-fw"></i>Charts</a></li>
+              <li><a href="#" data-target-id="table"><i class="fa fa-table fa-fw"></i>Table</a></li>
+              <li><a href="#" data-target-id="forms"><i class="fa fa-tasks fa-fw"></i>Forms</a></li>
+              <li><a href="#" data-target-id="calender"><i class="fa fa-calendar fa-fw"></i>Calender</a></li>
+              <li><a href="#" data-target-id="library"><i class="fa fa-book fa-fw"></i>Library</a></li>
+              <li><a href="#" data-target-id="applications"><i class="fa fa-pencil fa-fw"></i>Applications</a></li>
+              <li><a href="#" data-target-id="settings"><i class="fa fa-cogs fa-fw"></i>Settings</a></li>
             </ul>
+          </div>
         </div>
         <!--  The Content -->
-        <div class="col-md-9 well admin-content" id="social">
-
-        </div>
         <div class="col-md-9 well admin-content" id="home">
             <p>
                 Hello! This is a forked snippet.<br>

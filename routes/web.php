@@ -34,3 +34,6 @@ Route::resource('penyedia', 'PenyediaController', ['parameters' => ['penyedia' =
 
 //Layanan
 Route::resource('layanan', 'LayananController');
+
+//Charts
+Route::resource('charts', 'ChartController');

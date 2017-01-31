@@ -45,6 +45,7 @@
 @endsection
 
 @section('content')
+
   <div class="container">
     <div class="row">
         <!--  Side Menu -->
@@ -54,7 +55,8 @@
 
         <div class="col-md-3 panel panel-default collapse in" id="sidemenu">
             <ul class="nav nav-pills nav-stacked admin-menu " data-spy="affix" data-offset-top="50">
-                <li class="active"><a href="#" data-target-id="home"><i class="fa fa-home fa-fw"></i>Home</a></li>
+                <li class="active"><a href="#" data-target-id="social"><i class="fa fa-th fa-fw"></i>Social</a></li>
+                <li><a href="#" data-target-id="home"><i class="fa fa-home fa-fw"></i>Home</a></li>
                 <li><a href="#" data-target-id="widgets"><i class="fa fa-list-alt fa-fw"></i>Widgets</a></li>
                 <li><a href="#" data-target-id="pages"><i class="fa fa-file-o fa-fw"></i>Pages</a></li>
                 <li><a href="#" data-target-id="charts"><i class="fa fa-bar-chart-o fa-fw"></i>Charts</a></li>
@@ -67,6 +69,9 @@
             </ul>
         </div>
         <!--  The Content -->
+        <div class="col-md-9 well admin-content" id="social">
+
+        </div>
         <div class="col-md-9 well admin-content" id="home">
             <p>
                 Hello! This is a forked snippet.<br>
@@ -106,10 +111,7 @@
             Settings
         </div>
     </div>
-
   </div>
-
-
 
 @endsection
 

@@ -45,7 +45,7 @@
                         <ul class="dropdown-menu" role="menu">
                           <li><a href="{{route('tipe.index')}}"><small>Tipe</small></a></li>
                           <li><a href="{{route('penyedia.index')}}"><small>Penyedia</small></a></li>
-                          <li><a href="#"><small>Layanan</small></a></li>
+                          <li><a href="{{route('layanan.index')}}"><small>Layanan</small></a></li>
                           <li><a href="#"><small>Produk</small></a></li>
                           <li role="separator" class="divider"></li>
                           <li>

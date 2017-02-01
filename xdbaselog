@@ -1,0 +1,42 @@
+**
+1 Feb 2017
+
+**
+Tipe - All Finished
+
+  Index - Done
+  Create - Done
+  Edit - Done
+  Show - No Need
+  Delete - Done
+
+* SET the AJAX or Vue 2
+
+Penyedia
+
+  Index - Done
+  Create - Not Finished
+  Edit - Not Yet
+  Show - Done
+  Delete - Not Yet
+
+Layanan
+
+  Index - Done
+  Create - Not Finished
+  Edit - Not Finished
+  Show - Done
+  Delete - Not Yet
+
+Dashboard
+  Menu -  Done * still not linking
+  Social Counter - View Done, Not Linking
+
+
+List Featured :
+Search Function   - Not Yet
+Chart             - Not Yet - Consoletv Chart vs LavaChart
+Real Database     - On Progress
+Tags              - Not Yet
+Data Relationship - On Progress
+ACL               - Not Yet - Need Role & Permission

@@ -10,9 +10,10 @@
     <br>
 
     <div class="row">
-      <h3>  &nbsp; Table Tipe Penyedia</h3>
-      <hr>
+
       <div class="col-md-8">
+        <h4 class="abel">&nbsp;Tipe Penyedia</h4>
+        <hr>
         <div class="table-responsive">
           <table class="table table-striped table-condensed">
             <thead>
@@ -21,7 +22,8 @@
                   <th>Tipe Penyedia</th>
                   <th>Created</th>
                   <th>Updated</th>
-                  <th>Action</th>
+                  <th></th>
+                  <th></th>
               </tr>
             </thead>
             <tbody>
@@ -32,8 +34,14 @@
                 <td><span class="label label-default">{{$t->created_at}}</span></td>
                 <td><span class="label label-success">{{$t->updated_at->diffForHumans()}}</span></td>
                 <td align="center">
-                  <a class="btn btn-default btn-xs"><em class="fa fa-pencil"></em></a>
-                  <a class="btn btn-danger btn-xs"><em class="fa fa-trash"></em></a>
+                <a href ="{{ route('tipe.edit', $t->id) }}" class="btn btn-default btn-xs"><em class="fa fa-pencil"></em></a>
+                </td>
+                <td>
+                  {!! Form::open(['route' => ['tipe.destroy', $t->id],'method' =>'DELETE', 'onsubmit' => "return confirm('Hapus Penyedia?')" ]) !!}
+                    <button class=" btn btn-xs btn-danger">
+                      <span class="hidden-xs showopacity fa fa-trash-o" type="submit"></span>
+                    </button>
+                  {!! Form::close() !!}
                 </td>
               </tr>
               @endforeach
@@ -43,11 +51,13 @@
       </div>
       <div class="col-md-4">
         <div class="well">
-          <div class="form-group">
-            <label for="">Tipe</label>
-            <input type="text" class="form-control" id="" placeholder="">
-            <button type="button" name="button" class="pull-right">Submit</button>
-          </div>
+          {!! Form::open(['route' =>'tipe.store', 'data-parsley-validate' => '']) !!}
+
+          {{ Form::label('fullname', 'Tipe:', ['class' => 'label label-default'])}}
+          {{ Form::text('fullname', null, ['class' => ' form-control', 'required' =>''])}}
+          {{ Form::submit('Tambah', ['class' => 'pull-right', 'style' =>'margin-top:20px'])}}
+
+          {!! Form::close() !!}
         </div>
       </div>
     </div>

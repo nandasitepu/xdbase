@@ -3,7 +3,7 @@
   Pusat Informasi dan Data Indonesia
 @endsection
 @section('css')
-  <link rel="stylesheet" href="/css/homepage.css">
+  <link rel="stylesheet" href="/css/pages/homepage.css">
 @endsection
 @section('scripts')
   <script type="text/javascript">
@@ -53,16 +53,16 @@
     </div>
   </div>
   <!-- STATIC BLOCK CENTER CONTENT-->
-  <div class="container" id="xdbase">
-    <div class="row">
+  <div class="container" >
+    <div class="row" id="xdbase">
       <div class="col-md-8 col-md-offset-2">
         <div class="text-center">
           <h4><span class="label label-primary">XDBASE</span></h4>
         </div>
-        <br>
+
         <div class="text-center full">
-          <h2 class="oswald">Pusat Data dan Informasi Indonesia</h2>
-          <h5 class="roboto">Referensi Data Terpercaya</h5>
+          <h2 class="oswald">Pusat Data dan Informasi</h2>
+          <h5 class="roboto"><i>Sumber Referensi Terpercaya</i></h5>
         </div>
         <br>
         <div class="text-center">
@@ -78,24 +78,26 @@
         </div>
         <br>
         <div class="col-md-10 col-md-offset-1 input-group">
-          <input type="hidden" name="search_param" value="all" id="search_param">
-          <input type="text" class="form-control text-center" name="x" placeholder="<< Cari Disini >>">
-          <div class="input-group-btn search-panel">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-              <span id="search_concept" class="lato">Filter</span> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu lato" role="menu">
-              <li><a href="#contains">Penyedia</a></li>
-              <li><a href="#its_equal">Layanan</a></li>
-              <li><a href="#its_equal">Produk</a></li>
-              <li><a href="#greather_than">Tag</a></li>
-              <li class="divider"></li>
-              <li><a href="#all">All</a></li>
-            </ul>
+          <div class="input-group">
+            <div class="input-group-btn search-panel">
+                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                  <span id="search_concept">Filter</span> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#contains">Penyedia</a></li>
+                  <li><a href="#its_equal">Layanan</a></li>
+                  <li><a href="#greather_than">Tag</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#all">All</a></li>
+                </ul>
+            </div>
+            <input type="hidden" name="search_param" value="all" id="search_param">
+            <input type="text" class="form-control" name="x" placeholder="...  Cari Disini ...">
+            <span class="input-group-btn">
+              <button class="btn btn-warning" type="button"><span class="glyphicon glyphicon-search"></span></button>
+            </span>
+
           </div>
-          <span class="input-group-btn">
-            <button class="btn btn-default btn-primary" type="button"><span class="glyphicon glyphicon-search" style="color:#fff"></span></button>
-          </span>
         </div><!-- /input-group --> <!-- Search BOX -->
         <hr>
         <br>
@@ -117,11 +119,11 @@
             </div>
           </div>
         </div>
-  
+
         <br>
         <div class="col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1 Tombol Masuk">
           <p class="text-center">
-            <a href="{{url('login')}}" class="btn btn-primary btn-md cool btn-block">
+            <a href="{{url('login')}}" class="btn btn-info btn-md cool btn-block">
               <span>Masuk</span>&nbsp;
               <i class="fa fa-fw fa-sign-in" aria-hidden="true"></i>
             </a>

@@ -1,3 +1,8 @@
+body {
+   background:url('../../storage/img/bg/brick.png');
+
+}
+
 /* Affix Side Menu */
 @media (max-width: 767px) {
     .affix {
@@ -237,5 +242,6 @@ a:hover,a:focus{
     border-bottom: 3px solid #ed4f69;
 }
 
-
-/* Social Media Icons */
+.pad {
+  padding:10px;
+}

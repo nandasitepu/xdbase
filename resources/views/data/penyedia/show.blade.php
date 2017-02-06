@@ -3,7 +3,7 @@
   {{ $penyedia->fullname }}
 @endsection
 @section('css')
-  <link rel="stylesheet" href="/css/penyedia/sidebar-nav.css">
+  <link rel="stylesheet" href="/css/data/sidebar-nav.css">
 @endsection
 @section('scripts')
 

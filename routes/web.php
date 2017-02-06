@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 
-Route::get('/dashboard', 'AdminController@index');
+Route::resource('dashboard', 'AdminController');
 
 // The Pages
 Route::get('/disclaimer', function () {return view('pages.disclaimer');});

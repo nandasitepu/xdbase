@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Provinsi;
 
 class AdminController extends Controller
 {
@@ -23,6 +24,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $provinsi = Provinsi::all();
+
+        return view('dashboard')->with('provinsi', $provinsi);
     }
 }

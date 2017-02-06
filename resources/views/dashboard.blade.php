@@ -122,16 +122,51 @@
           </div>
         </div>
         <!--  The Content -->
-        <div class="col-md-9 well admin-content" id="home">
-            <p>
-                Hello! This is a forked snippet.<br>
-                It is for users, which use one-page layouts.
-            </p>
-            <p>
-                Here's the original one from BhaumikPatel: <a href="http://bootsnipp.com/snippets/featured/vertical-admin-menu" target="_BLANK">Vertical Admin Menu</a>
-                <br>
-                Thank you Baumik!
-            </p>
+        <div class="col-md-9 admin-content" id="home">
+          <h3 class="lato text-center">
+            <span class="btn btn-primary btn-block">Daftar Layanan </span>
+          </h3>
+          <hr>
+          <div class="panel panel-default">
+            <div class="table-responsive panel-body">
+              <table class="table table-condensed table-bordered">
+                 <thead class="thead-inverse">
+                   <tr style="background-color: #eee">
+                     <th class="text-center">ID</th>
+                     <th class="text-center">Provinsi</th>
+                     <th class="text-center">Ibukota</th>
+                     <th class="text-center">Action</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                    @foreach ($provinsi as $prov)
+                    <tr>
+                    <td class="text-center">{{ $prov->id}}</td>
+                     <td>
+                       {{  ucfirst(trans($prov->nama)) }}
+                     </td>
+                     <td>{{ucfirst(trans($prov->ibukota))}}</td>
+                     <td class="text-center">
+                       <div class="btn-group btn-group-sm">
+                         <button type="button" class="btn btn-info">
+                           <i class="fa fa-bar-chart-o" aria-hidden="true"></i>&nbsp; Chart
+                         </button>
+                         <button type="button" class="btn btn-primary">
+                           <i class="fa fa-edit" aria-hidden="true"></i>&nbsp; Edit
+                         </button>
+                         <button type="button" class="btn btn-danger">
+                           <i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;Delete
+                         </button>
+                       </div>
+                     </td>
+                    </tr>
+                    @endforeach
+
+                 </tbody>
+               </table>
+            </div>
+          </div>
+
         </div>
         <div class="col-md-9 well admin-content" id="widgets">
             Widgets

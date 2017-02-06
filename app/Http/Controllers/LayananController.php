@@ -17,12 +17,19 @@ class LayananController extends Controller
     }
 
     //  Set Index Controller With Ajax For Loading More Data
-    public function index()
+    public function index(Request $request)
     {
-        $layanan = Layanan::all();
+      $layanan = layanan::orderBy('created_at', 'desc')->paginate(6);
 
-        return view ('data.layanan.index')->with('layanan', $layanan);
+      if ($request->ajax()) {
+      $view = view('data.layanan.ajax',compact('layanan'))->render();
+        return response()->json(['html'=>$view]);
+      }
+
+      return view('data.layanan.index', compact('layanan'));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -100,9 +107,8 @@ class LayananController extends Controller
      */
     public function show($id)
     {
+        $layanan  = Layanan::find($id);
         $penyedia = Penyedia::find($id);
-
-        $layanan = Layanan::find($id);
 
         return view ('data.layanan.show')->with('penyedia', $penyedia)->with('layanan', $layanan);
     }

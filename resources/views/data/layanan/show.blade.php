@@ -9,12 +9,20 @@
   </style>
 @endsection
 @section('scripts')
+
+
+@endsection
+
+@section('navtop')
   @include('layouts._navtop')
+
+@endsection
+@section('content')
   <div class="container">
     <div class="row">
       <div class="col-md-3">
         <div class="abel" id="title">
-          <h3>{{  strtoupper(trans($layanan->nama)) }}</h3>
+          <h3>{{  strtoupper(trans($layanan->penyedia->fullname)) }}</h3>
           <hr>
         </div>
         <div class="" id="gambar">
@@ -46,13 +54,13 @@
       </div>
       <div class="col-md-9">
         <div class="abel">
-          <h3>Detail</h3>
+          <h3>Detail : {{  strtoupper(trans($layanan->nama)) }}</h3>
 
           <div class="pull-right" id="buttons">
             <div class="btn-group">
-             	<button class="btn btn-success btn-effect btn-effect5 btn-effect5a"><span class="icon glyphicon glyphicon-floppy-disk"></span><span class="text">Save</span></button>
-                 <button class="btn btn-warning btn-effect btn-effect5 btn-effect5a"><span class="icon glyphicon glyphicon-trash"></span><span class="text">Delete</span></button>
-                 <button class="btn btn-danger btn-effect btn-effect5 btn-effect5a"><span class="icon glyphicon glyphicon-share-alt"></span><span class="text">Share</span></button>
+             	<button class="btn btn-warning btn-sm btn-effect btn-effect5 btn-effect5a"><span class="icon glyphicon glyphicon-floppy-disk"></span><span class="text">Edit</span></button>
+                 <button class="btn btn-danger btn-sm btn-effect btn-effect5 btn-effect5a"><span class="icon glyphicon glyphicon-trash"></span><span class="text">Delete</span></button>
+                 <button class="btn btn-info btn-sm btn-effect btn-effect5 btn-effect5a"><span class="icon glyphicon glyphicon-share-alt"></span><span class="text">Share</span></button>
              </div>
           </div>
             <hr>
@@ -75,8 +83,7 @@
     </div>
   </div>
   <br><br><br><br>
-  @include('layouts._navbot')
 @endsection
-
-@section('content')
+@section('navbot')
+  @include('layouts._navbot')
 @endsection

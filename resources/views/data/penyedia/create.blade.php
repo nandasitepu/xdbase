@@ -3,7 +3,7 @@
   Tambah Penyedia Data
 @endsection
 @section('css')
-
+  <link rel="stylesheet" href="/css/penyedia/penyedia.css">
 @endsection
 @section('scripts')
   <script src="/js/data/penyedia.js"></script>
@@ -39,9 +39,13 @@
   </script>
 @endsection
 
-@section('content')
+@section('navtop')
   @include('layouts._navtop')
-    <div class="container" style="padding-bottom:100px">
+@endsection
+
+@section('content')
+
+    <div class="container">
       <div class="row">
         <div class="col-md-12">
           <h3><span class="label label-default">Tambah Penyedia</span></h3>
@@ -144,5 +148,8 @@
         </div>
       </div>
     </div>
+@endsection
+
+@section('navbot')
   @include('layouts._navbot')
 @endsection

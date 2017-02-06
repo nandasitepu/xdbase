@@ -63,19 +63,18 @@
     <!-- Title -->
     <div class="row">
       <div class="col-md-12 text-center">
-        <h3 class="lato">
+        <h3 class="abel">
           <span class="label label-primary">Daftar Layanan </span>
         </h3>
       </div>
       <div class="col-md-8 col-md-offset-2 text-center">
-
+        <h3 class="lato">
           <span class="btn btn-default btn-block btn-sm">
-            <h4 class="abel"> <i class="fa fa-binoculars fa-fw 2x" aria-hidden="true"></i>&nbsp;  Publik & Privat Data </h4>
+            <i class="fa fa-binoculars fa-fw 2x" aria-hidden="true"></i>&nbsp;  Publik & Privat Data
           </span>
-
+        </h3>
       </div>
     </div>
-    <br>
     <!-- SEARCH & MENU -->
     <div class="row">
       <div class="panel panel-default">
@@ -130,22 +129,21 @@
     <br>
     <!-- Data Layanan-->
     <div class="row" id="post-data">
+
         @include('data.layanan.ajax')
+
     </div>
     <div class="row">
-      <div class="col-md-6 col-md-offset-3" >
+      <div class="col-md-12" >
         <span class="btn btn-default btn-sm btn-block" id="loadmore">
            More Data &nbsp; <i class="fa fa-crosshairs fa-fw 2x" aria-hidden="true"></i>
         </span>
       </div>
       <!-- /.row -->
-      <div class="col-md-12">
-        <div class="ajax-load text-center" style="display:none">
-            <br />
-           <p><span class="fa fa-cog fa-spin fa-2x"></span>&nbsp; Loading</p>
-         </div>
-      </div>
-
+      <div class="ajax-load text-center" style="display:none">
+          <br />
+         <p><span class="fa fa-cog fa-spin fa-2x"></span>&nbsp; Loading</p>
+       </div>
     </div>
   </div>
 @endsection

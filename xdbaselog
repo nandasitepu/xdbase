@@ -1,6 +1,10 @@
 **
 1 Feb 2017
 
+Notes :
+
+Layanan   Image =  400 x 400
+Penyedia  Image
 **
 Tipe - All Finished
 
@@ -15,18 +19,23 @@ Tipe - All Finished
 Penyedia
 
   Index - Done
-  Create - Not Finished
-  Edit - Not Yet
-  Show - Done
-  Delete - Not Yet
+  Create - Done
+  Edit - Done Except Image
+  Show - Done * need improvemnent
+  Delete - Done
 
 Layanan
 
-  Index - Done
+  Index - Done - need fixed height for thumbnailview
   Create - Not Finished
   Edit - Not Finished
   Show - Done
   Delete - Not Yet
+
+  * Ajax ready need to Set pagination number for better loading
+
+
+/// NEED TO REFACTOR ALL CODE AND CLEAN DATABASE
 
 Dashboard
   Menu -  Done * still not linking
@@ -40,3 +49,4 @@ Real Database     - On Progress
 Tags              - Not Yet
 Data Relationship - On Progress
 ACL               - Not Yet - Need Role & Permission
+Provinsi          - Model Ready ; Controller Not Needed

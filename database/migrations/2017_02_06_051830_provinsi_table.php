@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ArtikelTable extends Migration
+class ProvinsiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class ArtikelTable extends Migration
      */
     public function up()
     {
-      Schema::create('artikel', function (Blueprint $table) {
+        Schema::create('provinsi', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('judul');
-          $table->text('body');
-          $table->integer('user_id');
+          $table->string('nama');
+          $table->string('ibukota');
           $table->timestamps();
-      });
+        });
     }
 
     /**
@@ -29,6 +28,6 @@ class ArtikelTable extends Migration
      */
     public function down()
     {
-      Schema::dropIfExists('artikel');
+      Schema::dropIfExists('provinsi');
     }
 }

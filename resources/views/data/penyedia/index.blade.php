@@ -3,91 +3,96 @@
   List Penyedia Data
 @endsection
 @section('css')
-  <link rel="stylesheet" href="/css/penyedia/sidebar-nav.css">
+  <link rel="stylesheet" href="/css/data/penyedia.css">
 @endsection
 @section('scripts')
+  <script src="js/data/penyedia.js" charset="utf-8"></script>
   <script type="text/javascript">/* Ajax Load More */
-  var page = 1;
+    var page = 1;
+    // Trigger click on button
+    $("#loadmore").click(function (e) {
+      page++;
+      loadMoreData(page);
+    });
+    // Load More Function
+    function loadMoreData(page){
+  	  $.ajax(
+  	        {
+  	            url: '?page=' + page,
+  	            type: "get",
+  	            beforeSend: function()
+  	            {
+                  $('.ajax-load').show();
+  	            }
+  	        })
+  	        .done(function(data)
+  	        {
+              if(data.html == ""){
+                $('#loadmore').hide();
+                $('.ajax-load').html("<br /> <h4> ... Data Habis ... </h4>");
+                return;
+              }
+              $('#loadmore').show();
+              $('.ajax-load').hide();
+              $("#post-data").append(data.html);
 
-  $("#loadmore").click(function (e) { //user clicks on button
-    page++;
-    loadMoreData(page);
-  });
+  	        })
+  	        .fail(function(jqXHR, ajaxOptions, thrownError)
+  	         {
+                alert('server not responding...');
+  	          });
+  	}
+  </script>
+@endsection
 
-  function loadMoreData(page){
-	  $.ajax(
-	        {
-	            url: '?page=' + page,
-	            type: "get",
-	            beforeSend: function()
-	            {
-                $('.ajax-load').show();
-	            }
-	        })
-	        .done(function(data)
-	        {
-            if(data.html == ""){
-              $('#loadmore').hide();
-              $('.ajax-load').html("<br /> <h4> ... Habis ... </h4>");
-              return;
-            }
-            $('#loadmore').show();
-            $('.ajax-load').hide();
-            $("#post-data").append(data.html);
-
-	        })
-	        .fail(function(jqXHR, ajaxOptions, thrownError)
-	         {
-              alert('server not responding...');
-	          });
-	}
-</script>
+@section('navtop')
+  @include('layouts._navtop')
 @endsection
 
 @section('content')
-  @include('layouts._navtop')
-  <!-- Side Menu -->
-  <nav class="navbar navbar-default sidebar" role="navigation">
-    <div class="container-fluid">
-    	<!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-  			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-  				<span class="sr-only">Toggle navigation</span>
-  				<span class="icon-bar"></span>
-  				<span class="icon-bar"></span>
-  				<span class="icon-bar"></span>
-  			</button>
-		  </div>
-		  <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li><a href="{{route('penyedia.create')}}">Add<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-plus-circle"></span></a></li>
-				<li ><a href="#">Delete<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-trash-o"></span></a></li>
-				<li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-comment-o"></span></a></li>
-			</ul>
-		</div>
-    </div>
-  </nav>
   <!-- CONTENT -->
   <div class="main">
     <!-- Page Content -->
     <div class="container" style="padding-bottom:70px">
       <div class="row" style="padding:0px">
         @include('layouts._message')
-        <h3>&nbsp;<span class="label label-default">Index Penyedia Data</span></h3>
-          <hr>
+        <div class="col-md-4">
+          <div style="padding-top:30px">
+            <h4><span class="label label-default">Index Penyedia Data</span></h4>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <br>
+          <div class="panel panel-default pull-right">
+            <div class="panel-body text-center pad">
+              <button type="button" class="btn btn-primary btn-xs custom">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Tambah
+              </button>
+              <button type="button" class="btn btn-success btn-xs custom">
+                <i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;  Tipe
+              </button>
+              <button type="button" class="btn btn-warning btn-xs custom">
+                <i class="fa fa-tags" aria-hidden="true"></i>&nbsp; Tag
+              </button>
+              <button type="button" class="btn btn-info btn-xs custom">
+                <i class="fa fa-sort-alpha-asc" aria-hidden="true"></i>&nbsp; Urutkan
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
       <!-- Penyedia Row -->
-      <div class="row" id="post-data"  >
+      <div class="row" id="post-data">
         @include('data.penyedia.ajax')
       </div>
-      <div class="btn btn-default btn-sm btn-block" id="loadmore">
-        More Data
+      <div class="row">
+        <div class="btn btn-default btn-sm btn-block" id="loadmore">
+          More Data  &nbsp;  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </div>
       </div>
-
       <!-- /.row -->
-      <div class="ajax-load text-center" style="display:none">
-          <br />
+      <div class="ajax-load text-center" style="display:none" >
+         <br />
 	       <p><span class="fa fa-cog fa-spin fa-2x"></span>&nbsp; Loading</p>
        </div>
 
@@ -95,5 +100,8 @@
     <br />
     <br />
   </div>
+@endsection
+
+@section('navbot')
   @include('layouts._navbot')
 @endsection

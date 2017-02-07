@@ -126,8 +126,9 @@
           <h3 class="lato text-center">
             <span class="btn btn-primary btn-block">Daftar Layanan </span>
           </h3>
-          <hr>
-          <div class="panel panel-default">
+          <br>
+          <!-- HIDDEN ON SMALL SCREEN -->
+          <div class="panel panel-default hidden-xs">
             <div class="table-responsive panel-body">
               <table class="table table-condensed table-bordered">
                  <thead class="thead-inverse">
@@ -135,18 +136,20 @@
                      <th class="text-center">ID</th>
                      <th class="text-center">Provinsi</th>
                      <th class="text-center">Ibukota</th>
+                     <th class="text-center">Logo</th>
                      <th class="text-center">Action</th>
                    </tr>
                  </thead>
                  <tbody>
                     @foreach ($provinsi as $prov)
                     <tr>
-                    <td class="text-center">{{ $prov->id}}</td>
-                     <td>
+                      <td class="text-center">{{ $prov->id}}</td>
+                      <td>
                        {{  ucfirst(trans($prov->nama)) }}
-                     </td>
-                     <td>{{ucfirst(trans($prov->ibukota))}}</td>
-                     <td class="text-center">
+                      </td>
+                      <td>{{ucfirst(trans($prov->ibukota))}}</td>
+                      <td class="text-center"><img src="{{ asset('storage/img/provinsi/' . $prov->image) }}" alt="" width="75px" height="75px"></td>
+                      <td class="text-center">
                        <div class="btn-group btn-group-sm">
                          <button type="button" class="btn btn-info">
                            <i class="fa fa-bar-chart-o" aria-hidden="true"></i>&nbsp; Chart

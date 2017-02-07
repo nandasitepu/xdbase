@@ -17,6 +17,7 @@ class ProvinsiTable extends Migration
           $table->increments('id');
           $table->string('nama');
           $table->string('ibukota');
+          $table->string('image');
           $table->timestamps();
         });
     }

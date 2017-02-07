@@ -1,5 +1,5 @@
 @foreach ($layanan as $l)
-  <div class="col-lg-2 col-md-3 col-sm-5 col-xs-6 portfolio-item">
+  <div class="col-lg-3 col-md-3 col-sm-5 col-xs-6 portfolio-item">
       <img src="{{ asset('storage/img/penyedia/' . $l->penyedia->image) }}" width="28px" alt="user profile image"
       class="img-rounded thumbnail" style=" z-index:1; position: absolute;right:0;top:20%"> &nbsp;
 

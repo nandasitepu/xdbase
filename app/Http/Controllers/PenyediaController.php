@@ -22,7 +22,7 @@ class PenyediaController extends Controller
     //  Set Index Controller With Ajax For Loading More Data
     public function index(Request $request)
     {
-      $penyedia = Penyedia::orderBy('created_at', 'desc')->paginate(4);
+      $penyedia = Penyedia::orderBy('created_at', 'desc')->paginate(6);
 
       if ($request->ajax()) {
       $view = view('data.penyedia.ajax',compact('penyedia'))->render();

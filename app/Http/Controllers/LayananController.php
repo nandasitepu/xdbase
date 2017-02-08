@@ -19,7 +19,7 @@ class LayananController extends Controller
     //  Set Index Controller With Ajax For Loading More Data
     public function index(Request $request)
     {
-      $layanan = layanan::orderBy('created_at', 'desc')->paginate(4);
+      $layanan = layanan::orderBy('created_at', 'desc')->paginate(6);
 
       if ($request->ajax()) {
       $view = view('data.layanan.ajax',compact('layanan'))->render();

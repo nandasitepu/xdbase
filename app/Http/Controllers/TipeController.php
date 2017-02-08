@@ -18,7 +18,7 @@ class TipeController extends Controller
 
     public function index() {
 
-      $tipe = Tipe::all();
+      $tipe = Tipe::orderBy('id', 'asc')->paginate(10);
 
       return view('data.tipe.index', compact('tipe'));
     }

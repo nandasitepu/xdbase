@@ -58,24 +58,30 @@
 
           <div class="pull-right" id="buttons">
             <div class="btn-group">
-             	<button class="btn btn-warning btn-sm btn-effect btn-effect5 btn-effect5a"><span class="icon glyphicon glyphicon-floppy-disk"></span><span class="text">Edit</span></button>
-                 <button class="btn btn-danger btn-sm btn-effect btn-effect5 btn-effect5a"><span class="icon glyphicon glyphicon-trash"></span><span class="text">Delete</span></button>
-                 <button class="btn btn-info btn-sm btn-effect btn-effect5 btn-effect5a"><span class="icon glyphicon glyphicon-share-alt"></span><span class="text">Share</span></button>
+             	<button class="btn btn-warning btn-sm btn-effect btn-effect5 btn-effect5a">
+                <a class="icon fa fa-pencil-square-o" style="none" href="{{route('layanan.edit', $layanan->id)}}"></a>
+                <span class="text">Edit</span>
+              </button>
+              <button class="btn btn-danger btn-sm btn-effect btn-effect5 btn-effect5a">
+                <span class="icon glyphicon glyphicon-trash"></span>
+                <span class="text">Delete</span>
+              </button>
+               <button class="btn btn-info btn-sm btn-effect btn-effect5 btn-effect5a">
+                 <span class="icon glyphicon glyphicon-share-alt"></span>
+                 <span class="text">Share</span>
+               </button>
              </div>
           </div>
             <hr>
           <div class="detail-layanan lato" style="font-size:14px">
+            <div class="text-center">
+              <img class="img-responsive img-thumbnail" src="{{ asset('storage/img/layanan/' . $layanan->gambar) }}" width="500px">
+            </div>
+            <hr>
             <p>
-              {{$layanan->detail}}
+              {!! $layanan->detail !!}
 
             </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
 
         </div>

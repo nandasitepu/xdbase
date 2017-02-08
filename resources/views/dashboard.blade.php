@@ -10,16 +10,11 @@
   </style>
 @endsection
 @section('scripts')
-  <script type="text/javascript">
-    /* off-canvas sidebar toggle */
-    $('[data-toggle=offcanvas]').click(function() {
-        $('.row-offcanvas').toggleClass('active');
-        $('.collapse').toggleClass('in').toggleClass('hidden-xs').toggleClass('visible-xs');
-    });
-  </script>
+  <script src="../js/my-vue.js" charset="utf-8"></script>
+
   <script type="text/javascript">
       $(document).ready(function()
-    {
+      {
       var navItems = $('.admin-menu li > a');
       var navListItems = $('.admin-menu li');
       var allWells = $('.admin-content');

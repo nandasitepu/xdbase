@@ -7,7 +7,7 @@
 @endsection
 @section('scripts')
   <script src="js/data/penyedia.js" charset="utf-8"></script>
-  <script type="text/javascript">/* Ajax Load More */
+  <script type="text/javascript">   /* Ajax Load More */
     var page = 1;
     // Trigger click on button
     $("#loadmore").click(function (e) {
@@ -43,6 +43,13 @@
   	          });
   	}
   </script>
+
+  <script type="text/javascript">   /* Menu Toggle */
+    $('#menu-btn').click(function() {
+      $('#change').toggleClass('fa fa-minus-circle');
+      $('#change').toggleClass('fa fa-plus-circle');
+    });
+  </script>
 @endsection
 
 @section('navtop')
@@ -58,19 +65,38 @@
         @include('layouts._message')
         <div class="col-md-4">
           <div style="padding-top:30px">
-            <h4><span class="label label-default">Index Penyedia Data</span></h4>
+            <h3><span class="label label-default">Index Penyedia Data</span></h3>
           </div>
         </div>
-        <div class="col-md-8">
+
+
+        <div class="col-md-8" >
+
           <br>
           <div class="panel panel-default pull-right">
+            <button data-toggle="collapse" data-target="#demo" class="btn btn-primary btn-xs pad" id ="menu-btn">
+              <span class="fa fa-plus-circle fa-2x" id="change"></span>
+            </button>
+          </div>
+          <div class="panel panel-default pull-right collapse" id="demo" >
             <div class="panel-body text-center pad">
+              <a href="{{route("penyedia.create")}}">
               <button type="button" class="btn btn-primary btn-xs custom">
                 <i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Tambah
               </button>
-              <button type="button" class="btn btn-success btn-xs custom">
-                <i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;  Tipe
-              </button>
+              </a>
+              <span class="dropdown">
+                <button class="btn btn-success btn-xs custom dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                  <i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;  Tipe
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                  <li role="presentation"><a role="menuitem" href="#">Kementerian</a></li>
+                  <li role="presentation"><a role="menuitem" href="#">BUMN/BUMD</a></li>
+                  <li role="presentation"><a role="menuitem" href="#">Swasta</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation"><a role="menuitem" href="#">Lainnya</a></li>
+                </ul>
+              </span>
               <button type="button" class="btn btn-warning btn-xs custom">
                 <i class="fa fa-tags" aria-hidden="true"></i>&nbsp; Tag
               </button>
@@ -79,6 +105,7 @@
               </button>
             </div>
           </div>
+
         </div>
       </div>
       <!-- Penyedia Row -->
@@ -95,10 +122,7 @@
          <br />
 	       <p><span class="fa fa-cog fa-spin fa-2x"></span>&nbsp; Loading</p>
        </div>
-
     </div>
-    <br />
-    <br />
   </div>
 @endsection
 

@@ -18,7 +18,6 @@ class PenyediaController extends Controller
       $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-
     //  Set Index Controller With Ajax For Loading More Data
     public function index(Request $request)
     {

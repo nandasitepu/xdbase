@@ -17,7 +17,6 @@
       });
     });
   </script>
-
   <script type="text/javascript">/* Ajax Load More */
       var page = 1;
       // Trigger click on button
@@ -79,18 +78,26 @@
     <!-- SEARCH & MENU -->
     <div class="row">
       <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title"></h3>
-    </div>
+      <div class="panel-heading">
+        <h3 class="panel-title"></h3>
+      </div>
     <div class="panel-body">
       <div class="col-md-5">
         <div class="well-sm text-center">
-          <button class="custom btn btn-default btn-xs">
-            <i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Tambah
-          </button>
-          <button class="custom btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;  Penyedia
-          </button>
+          <a href="{{route('layanan.create')}}">
+            <button class="custom btn btn-default btn-xs">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp; Tambah
+            </button>
+          </a>
+
+
+          <a href="{{route('penyedia.index')}}">
+            <button class="custom btn btn-default btn-xs">
+              <i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;  Penyedia
+            </button>
+          </a>
+
+
           <button class="custom btn btn-default btn-xs">
             <i class="fa fa-tags" aria-hidden="true"></i>&nbsp; Tag
           </button>
@@ -123,9 +130,8 @@
       </div>
     </div>
     <div class="panel-footer">
-
     </div>
-  </div>
+      </div>
     </div>
     <br>
     <!-- Data Layanan-->

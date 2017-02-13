@@ -7,7 +7,7 @@
   <style media="screen">
   body{margin-top:20px; margin-bottom: 60px}
   .fa-fw {width: 2em;}
-  </style>
+  </style>
 @endsection
 @section('scripts')
   <script src="../js/my-vue.js" charset="utf-8"></script>

@@ -6,13 +6,35 @@
   <link rel="stylesheet" href="/css/pages/homepage.css">
 @endsection
 @section('scripts')
-  <script type="text/javascript">
+  <script type="text/javascript"> /* Number Counter */
     $(document).ready(function () {
-      $('.count').each(function () {
+      $('.count1').each(function () {
         $(this).prop('Counter',0).animate({
             Counter: $(this).text()
         }, {
             duration: 5000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+      });
+      $('.count2').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 6000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+      });
+      $('.count3').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 7000,
             easing: 'swing',
             step: function (now) {
                 $(this).text(Math.ceil(now));
@@ -25,7 +47,7 @@
      });
     });
   </script>
-  <script type="text/javascript">
+  <script type="text/javascript"> /* Search Filter */
       $(document).ready(function(e){
         $('.search-panel .dropdown-menu').find('a').click(function(e) {
         e.preventDefault();
@@ -69,36 +91,36 @@
         <div class="text-center">
           <div class="btn-group lato" id="menu1">
             <div class="col-xs-12">
-              <a href="/penyedia" class="btn btn-default btn-sm"><i class="fa fa-university" aria-hidden="true"></i>&nbsp;|&nbsp;Penyedia &nbsp; <span class="label label-default">{{App\Penyedia::all()->count()}}</span></a>
+              <a href="/penyedia" class="btn btn-default btn-sm"><i class="fa fa-university" aria-hidden="true"></i>&nbsp;|&nbsp;Penyedia &nbsp; <span class="label label-default count1">{{App\Penyedia::all()->count()}}</span></a>
               <a href="/layanan" class="btn btn-default btn-sm"><i class="fa fa-wheelchair-alt" aria-hidden="true"></i>&nbsp;|&nbsp;Layanan
-              &nbsp; <span class="label label-default">{{App\Layanan::all()->count()}}</span></a>
+              &nbsp; <span class="label label-default count1">{{App\Layanan::all()->count()}}</span></a>
               <a href="#" class="btn btn-default btn-sm"><i class="fa fa-cubes" aria-hidden="true"></i>&nbsp;|&nbsp;Produk</a>
               <a href="#" class="btn btn-default btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;|&nbsp;Review</a>
             </div>
           </div>
         </div>
         <br>
-        <div class="col-md-10 col-md-offset-1 input-group">
+        <div class="col-md-10 col-md-offset-1">
           <div class="input-group">
-            <div class="input-group-btn search-panel">
-                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                  <span id="search_concept">Filter</span> <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#contains">Penyedia</a></li>
-                  <li><a href="#its_equal">Layanan</a></li>
-                  <li><a href="#greather_than">Tag</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#all">All</a></li>
-                </ul>
-            </div>
-            <input type="hidden" name="search_param" value="all" id="search_param">
-            <input type="text" class="form-control" name="x" placeholder="...  Cari Disini ...">
-            <span class="input-group-btn">
-              <button class="btn btn-warning" type="button"><span class="glyphicon glyphicon-search"></span></button>
-            </span>
+              <div class="input-group-btn search-panel ">
+                  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                    <span id="search_concept">Filter</span> <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#contains">Penyedia</a></li>
+                    <li><a href="#its_equal">Layanan</a></li>
+                    <li><a href="#greather_than">Tag</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#all">All</a></li>
+                  </ul>
+              </div>
+              <input type="hidden" name="search_param" value="all" id="search_param">
+              <input type="text" class="form-control text-center" name="x" placeholder="...  Cari Disini ...">
+              <span class="input-group-btn">
+                <button class="btn btn-warning" type="button"><span class="glyphicon glyphicon-search"></span></button>
+              </span>
 
-          </div>
+            </div>
         </div><!-- /input-group --> <!-- Search BOX -->
         <hr>
         <br>
@@ -106,23 +128,23 @@
           <div class="btn-group lato" id="menu2">
             <div class="col-xs-12">
               <a href="#"  class="btn btn-default btn-sm cool">
-                <i class="fa fa-users" aria-hidden="true"></i>&nbsp;|&nbsp; User &nbsp; <span class="label label-primary count">100</span>
+                <i class="fa fa-users" aria-hidden="true"></i>&nbsp;|&nbsp; User &nbsp; <span class="label label-primary count1">100</span>
               </a>
               <a href="#"   class="btn btn-default btn-sm cool">
-              <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;|&nbsp; Artikel  &nbsp;<span class="label label-success count">267</span>
+              <i class="fa fa-newspaper-o" aria-hidden="true"></i>&nbsp;|&nbsp; Artikel  &nbsp;<span class="label label-success count2">267</span>
               </a>
               <a href="#list"  class="btn btn-default btn-sm cool">
-                <i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp;|&nbsp; Komentar &nbsp;<span class="label label-warning count">123</span>
+                <i class="fa fa-comments-o" aria-hidden="true"></i>&nbsp;|&nbsp; Komentar &nbsp;<span class="label label-warning count1">123</span>
               </a>
               <a href="#list"   class="btn btn-default btn-sm cool">
-                <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;|&nbsp; Kunjungan &nbsp; <span class="label label-danger count">4005</span>
+                <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;|&nbsp; Kunjungan &nbsp; <span class="label label-danger count3">4005</span>
               </a>
             </div>
           </div>
         </div>
 
         <br>
-        <div class="col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1 Tombol Masuk">
+        <div class="col-md-4 col-md-offset-4 col-xs-10 col-xs-offset-1">
           <p class="text-center">
             <a href="{{url('login')}}" class="btn btn-info btn-md cool btn-block">
               <span>Masuk</span>&nbsp;

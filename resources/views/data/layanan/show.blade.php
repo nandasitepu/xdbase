@@ -26,7 +26,7 @@
           <hr>
         </div>
         <div class="" id="gambar">
-          <img src="{{ asset('storage/img/penyedia/' . $penyedia->image)}}" alt="" class="img-thumbnail" width="250px">
+          <img src="{{ asset('storage/img/penyedia/' . $layanan->penyedia->image)}}" alt="" class="img-thumbnail" width="250px">
         </div>
         <hr>
         <h4> Summary:</h4>
@@ -55,23 +55,36 @@
       <div class="col-md-9">
         <div class="abel">
           <h3>Detail : {{  strtoupper(trans($layanan->nama)) }}</h3>
-
+          <a href="{{route('layanan.index')}}">
+            <h5><span class="label label-success">Back to Index</span></h5>
+          </a>
           <div class="pull-right" id="buttons">
-            <div class="btn-group">
-             	<button class="btn btn-warning btn-sm btn-effect btn-effect5 btn-effect5a">
-                <a class="icon fa fa-pencil-square-o" style="none" href="{{route('layanan.edit', $layanan->id)}}"></a>
-                <span class="text">Edit</span>
-              </button>
-              <button class="btn btn-danger btn-sm btn-effect btn-effect5 btn-effect5a">
-                <span class="icon glyphicon glyphicon-trash"></span>
-                <span class="text">Delete</span>
-              </button>
+
+                <a href="{{route('layanan.edit', $layanan->id)}}">
+               	<button class="btn btn-warning btn-sm btn-effect btn-effect5 btn-effect5a">
+
+                    <span class="icon fa fa-pencil-square-o"></span>
+
+                  <span class="text">Edit</span>
+                </button>
                <button class="btn btn-info btn-sm btn-effect btn-effect5 btn-effect5a">
                  <span class="icon glyphicon glyphicon-share-alt"></span>
                  <span class="text">Share</span>
                </button>
-             </div>
-          </div>
+             </a>
+           {!! Form::open([
+             'route' => ['layanan.destroy', $layanan->id],
+             'method' =>'DELETE',
+             'onsubmit' => "return confirm('Hapus Layanan?')",
+             'class' => 'btn' ]) !!}
+             <button class="btn btn-danger btn-sm btn-effect btn-effect5 btn-effect5a">
+               <span class="icon glyphicon glyphicon-trash" type="submit"></span>
+               <span class="text">Delete</span>
+             </button>
+           {!! Form::close() !!}
+
+         </div>
+
             <hr>
           <div class="detail-layanan lato" style="font-size:14px">
             <div class="text-center">

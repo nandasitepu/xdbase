@@ -36,6 +36,8 @@ require('laravel-elixir-vue-2');
 
    mix.copy(npmDir + 'parsleyjs/dist/parsley.js', jsDir);
 
+   mix.copy(npmDir + 'chart.js/dist/Chart.bundle.js', jsDir);
+
 
 
 // The Scripts
@@ -50,6 +52,11 @@ require('laravel-elixir-vue-2');
      'id.js',
      'select2.js',
    ],'public/js/form.js' );
+
+   mix.scripts([
+     'Chart.bundle.js'
+   ],'public/js/chart.js' );
+
 
  });
 

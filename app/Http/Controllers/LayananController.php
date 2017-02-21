@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Penyedia;
 use App\Layanan;
-
+use Session;
+use Image;
+use Storage;
 
 class LayananController extends Controller
 {
@@ -84,7 +86,7 @@ class LayananController extends Controller
         $image = $request->file('gambar');
         $filename = time(). '.'. $image->getClientOriginalName();
         $location = public_path('storage/img/layanan/') . $filename;
-        Image::make($image)->resize(400,400)->save($location);
+        Image::make($image)->resize(500,300)->save($location);
         // Set Image Name to Database
         $layanan->gambar = $filename;
       }
@@ -121,8 +123,9 @@ class LayananController extends Controller
      */
     public function edit($id)
     {
+      $penyedia = Penyedia::all();
       $layanan = Layanan::find($id);
-      return view ('data.layanan.edit')->with('layanan', $layanan);
+      return view ('data.layanan.edit')->with('layanan', $layanan)->with('penyedia', $penyedia);
     }
 
     /**
@@ -134,7 +137,55 @@ class LayananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      // Validasi Form Tambah Layanan
+      $this->validate($request,[
+        'gambar'        => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'nama'          => 'required|max:255',
+        'slug'          => 'required',
+        'detail'        => 'required',
+        'syarat'        => 'required',
+        'waktu'         => 'required',
+        'biaya'         => 'required',
+        'kontak'        => 'required',
+        'info'          => 'required',
+
+        'penyedia_id'   => 'required|integer',
+      ]);
+
+      // Simpan Data Layanan
+      $layanan = Layanan::find($id);
+
+      $layanan->nama            = $request->nama;
+      $layanan->slug            = $request->slug; // URL
+      $layanan->detail          = $request->detail;
+      $layanan->syarat          = $request->syarat;
+      $layanan->waktu           = $request->waktu;
+      $layanan->biaya           = $request->biaya;
+      $layanan->kontak          = $request->kontak;
+      $layanan->info            = $request->info;
+
+      $layanan->penyedia_id     = $request->penyedia_id;
+
+      // Upload Image and Set to Database
+      if($request->hasFile('gambar')) {
+        $image = $request->file('gambar');
+        $filename = time(). '.'. $image->getClientOriginalName();
+        $location = public_path('storage/img/layanan/') . $filename;
+        Image::make($image)->resize(500,300)->save($location);
+        // Image Lama
+        $oldFilename = $layanan->gambar;
+        // Set Image Name to Database
+        $layanan->gambar = $filename;
+        // Delete Image Lama
+        Storage::delete($oldFilename);
+      }
+
+      // Save All Form Data
+      $layanan->save();
+      // Flash Success Message
+      Session::flash('success','Layanan Berhasil Diubah !');
+      // Back to The Index Page
+      return redirect()->route('layanan.show',$layanan->id);
     }
 
     /**
@@ -145,6 +196,16 @@ class LayananController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $layanan = Layanan::find($id);
+
+      // Delete Penyedia Image
+      Storage::delete($layanan->gambar);
+
+      // Delete Penyedia Database
+      $layanan->delete();
+
+      // Flash Success Message
+      Session::flash('success','Layanan Berhasil Dihapus !');
+      return redirect()->route('layanan.index');
     }
 }

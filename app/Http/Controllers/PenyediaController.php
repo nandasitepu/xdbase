@@ -71,7 +71,7 @@ class PenyediaController extends Controller
         $image = $request->file('image');
         $filename = time(). '.'. $image->getClientOriginalName();
         $location = public_path('storage/img/penyedia/') . $filename;
-        Image::make($image)->resize(400,400)->save($location);
+        Image::make($image)->resize(300,300)->save($location);
         // Set Image Name to Database
         $penyedia->image = $filename;
       }
@@ -137,7 +137,7 @@ class PenyediaController extends Controller
         $image = $request->file('image');
         $filename = time(). '.'. $image->getClientOriginalName();
         $location = public_path('storage/img/penyedia/') . $filename;
-        Image::make($image)->resize(400,400)->save($location);
+        Image::make($image)->resize(300,300)->save($location);
         // Image Lama
         $oldFilename = $penyedia->image;
         // Update Database

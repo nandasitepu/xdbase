@@ -55,7 +55,7 @@
             </div>
             <div class="col-md-3">
               <br>
-                {{ Form::label('slug', 'url:', ['class' => 'label label-default'])}}
+                {{ Form::label('slug', 'Url:', ['class' => 'label label-default'])}}
                 {{ Form::text('slug', null, [
                   'class' => ' form-control',
                   'required' =>'',
@@ -66,13 +66,14 @@
             <div class="col-md-3">
               <br>
               <div class="form-group">
-                {{ Form::label('slug', 'Slug:', ['class' => 'label label-default'])}}
-                {{ Form::text('slug', null, [
-                  'class' => ' form-control',
-                  'required' =>'',
-                  'maxlength' => '255'
-                  ])
-                }}
+                {{ Form::label('penyedia', 'Penyedia:', ['class' => 'label label-default'])}}
+                <select class="form-control" name="penyedia_id">
+                  @foreach($penyedia as $p)
+                    <option value = '{{ $p->id}}'>
+                      {{$p->fullname}}
+                    </option>
+                  @endforeach
+                </select>
               </div>
             </div>
           </div>
@@ -85,7 +86,7 @@
                 {{ Form::label('gambar', 'Image Layanan:', ['class' => 'label label-default'])}}
                 {{ Form::file('gambar', ['class' => 'form-control', 'id'=>'img-upload'])  }}
                 <div class="text-center" style="margin:5px">
-                  <img src="{{ asset('storage/img/layanan/' . $layanan->gambar) }}" id="img-upload-show" width="500px"/>
+                  <img src="{{ asset('storage/img/layanan/' . $layanan->gambar) }}" id="img-upload-show" width="100%"/>
                 </div>
               </div>
             </div>
@@ -122,7 +123,7 @@
             <div class="col-md-3">
               <br>
               {{ Form::label('waktu', 'Waktu:', ['class' => 'label label-default'])}}
-              {{ Form::textarea('biaya', null, [
+              {{ Form::textarea('waktu', null, [
                 'class' => ' form-control',
                 'data-parsley-trigger' => "change",
                 'required' =>'',
@@ -173,7 +174,7 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              {{ Form::submit('Tambah Penyedia', ['class' => 'btn btn-sm btn-block btn-default', 'style' =>'margin-top:20px'])}}
+              {{ Form::submit('Edit Layanan', ['class' => 'btn btn-sm btn-block btn-default', 'style' =>'margin-top:20px'])}}
             </div>
           </div>
         {!! Form::close() !!}
